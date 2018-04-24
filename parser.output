@@ -1,0 +1,480 @@
+Terminals unused in grammar
+
+   COLON
+   IDENTIFIER
+
+
+Grammar
+
+    0 $accept: program "end of file"
+
+    1 program: "end of file"
+    2        | line "end of file"
+
+    3 line: statement
+    4     | line statement
+
+    5 statement: LOAD REGISTER COMMA INTEGER
+    6          | ADD REGISTER COMMA REGISTER COMMA REGISTER
+    7          | SUB REGISTER COMMA REGISTER COMMA REGISTER
+    8          | OR REGISTER COMMA REGISTER COMMA REGISTER
+    9          | XOR REGISTER COMMA REGISTER COMMA REGISTER
+   10          | BRA REGISTER
+   11          | BRAZ REGISTER
+   12          | BRAL REGISTER
+   13          | BRALZ REGISTER
+   14          | CALL REGISTER COMMA REGISTER
+   15          | IN REGISTER
+   16          | OUT REGISTER
+   17          | HALT
+   18          | NEWLINE
+
+
+Terminals, with rules where they appear
+
+"end of file" (0) 0 1 2
+error (256)
+NEWLINE (258) 18
+COMMA (259) 5 6 7 8 9 14
+COLON (260)
+IDENTIFIER (261)
+REGISTER (262) 5 6 7 8 9 10 11 12 13 14 15 16
+INTEGER (263) 5
+LOAD (264) 5
+ADD (265) 6
+SUB (266) 7
+OR (267) 8
+XOR (268) 9
+BRA (269) 10
+BRAZ (270) 11
+BRAL (271) 12
+BRALZ (272) 13
+CALL (273) 14
+HALT (274) 17
+IN (275) 15
+OUT (276) 16
+
+
+Nonterminals, with rules where they appear
+
+$accept (22)
+    on left: 0
+program (23)
+    on left: 1 2, on right: 0
+line (24)
+    on left: 3 4, on right: 2 4
+statement (25)
+    on left: 5 6 7 8 9 10 11 12 13 14 15 16 17 18, on right: 3 4
+
+
+State 0
+
+    0 $accept: . program "end of file"
+
+    "end of file"  shift, and go to state 1
+    NEWLINE        shift, and go to state 2
+    LOAD           shift, and go to state 3
+    ADD            shift, and go to state 4
+    SUB            shift, and go to state 5
+    OR             shift, and go to state 6
+    XOR            shift, and go to state 7
+    BRA            shift, and go to state 8
+    BRAZ           shift, and go to state 9
+    BRAL           shift, and go to state 10
+    BRALZ          shift, and go to state 11
+    CALL           shift, and go to state 12
+    HALT           shift, and go to state 13
+    IN             shift, and go to state 14
+    OUT            shift, and go to state 15
+
+    program    go to state 16
+    line       go to state 17
+    statement  go to state 18
+
+
+State 1
+
+    1 program: "end of file" .
+
+    $default  reduce using rule 1 (program)
+
+
+State 2
+
+   18 statement: NEWLINE .
+
+    $default  reduce using rule 18 (statement)
+
+
+State 3
+
+    5 statement: LOAD . REGISTER COMMA INTEGER
+
+    REGISTER  shift, and go to state 19
+
+
+State 4
+
+    6 statement: ADD . REGISTER COMMA REGISTER COMMA REGISTER
+
+    REGISTER  shift, and go to state 20
+
+
+State 5
+
+    7 statement: SUB . REGISTER COMMA REGISTER COMMA REGISTER
+
+    REGISTER  shift, and go to state 21
+
+
+State 6
+
+    8 statement: OR . REGISTER COMMA REGISTER COMMA REGISTER
+
+    REGISTER  shift, and go to state 22
+
+
+State 7
+
+    9 statement: XOR . REGISTER COMMA REGISTER COMMA REGISTER
+
+    REGISTER  shift, and go to state 23
+
+
+State 8
+
+   10 statement: BRA . REGISTER
+
+    REGISTER  shift, and go to state 24
+
+
+State 9
+
+   11 statement: BRAZ . REGISTER
+
+    REGISTER  shift, and go to state 25
+
+
+State 10
+
+   12 statement: BRAL . REGISTER
+
+    REGISTER  shift, and go to state 26
+
+
+State 11
+
+   13 statement: BRALZ . REGISTER
+
+    REGISTER  shift, and go to state 27
+
+
+State 12
+
+   14 statement: CALL . REGISTER COMMA REGISTER
+
+    REGISTER  shift, and go to state 28
+
+
+State 13
+
+   17 statement: HALT .
+
+    $default  reduce using rule 17 (statement)
+
+
+State 14
+
+   15 statement: IN . REGISTER
+
+    REGISTER  shift, and go to state 29
+
+
+State 15
+
+   16 statement: OUT . REGISTER
+
+    REGISTER  shift, and go to state 30
+
+
+State 16
+
+    0 $accept: program . "end of file"
+
+    "end of file"  shift, and go to state 31
+
+
+State 17
+
+    2 program: line . "end of file"
+    4 line: line . statement
+
+    "end of file"  shift, and go to state 32
+    NEWLINE        shift, and go to state 2
+    LOAD           shift, and go to state 3
+    ADD            shift, and go to state 4
+    SUB            shift, and go to state 5
+    OR             shift, and go to state 6
+    XOR            shift, and go to state 7
+    BRA            shift, and go to state 8
+    BRAZ           shift, and go to state 9
+    BRAL           shift, and go to state 10
+    BRALZ          shift, and go to state 11
+    CALL           shift, and go to state 12
+    HALT           shift, and go to state 13
+    IN             shift, and go to state 14
+    OUT            shift, and go to state 15
+
+    statement  go to state 33
+
+
+State 18
+
+    3 line: statement .
+
+    $default  reduce using rule 3 (line)
+
+
+State 19
+
+    5 statement: LOAD REGISTER . COMMA INTEGER
+
+    COMMA  shift, and go to state 34
+
+
+State 20
+
+    6 statement: ADD REGISTER . COMMA REGISTER COMMA REGISTER
+
+    COMMA  shift, and go to state 35
+
+
+State 21
+
+    7 statement: SUB REGISTER . COMMA REGISTER COMMA REGISTER
+
+    COMMA  shift, and go to state 36
+
+
+State 22
+
+    8 statement: OR REGISTER . COMMA REGISTER COMMA REGISTER
+
+    COMMA  shift, and go to state 37
+
+
+State 23
+
+    9 statement: XOR REGISTER . COMMA REGISTER COMMA REGISTER
+
+    COMMA  shift, and go to state 38
+
+
+State 24
+
+   10 statement: BRA REGISTER .
+
+    $default  reduce using rule 10 (statement)
+
+
+State 25
+
+   11 statement: BRAZ REGISTER .
+
+    $default  reduce using rule 11 (statement)
+
+
+State 26
+
+   12 statement: BRAL REGISTER .
+
+    $default  reduce using rule 12 (statement)
+
+
+State 27
+
+   13 statement: BRALZ REGISTER .
+
+    $default  reduce using rule 13 (statement)
+
+
+State 28
+
+   14 statement: CALL REGISTER . COMMA REGISTER
+
+    COMMA  shift, and go to state 39
+
+
+State 29
+
+   15 statement: IN REGISTER .
+
+    $default  reduce using rule 15 (statement)
+
+
+State 30
+
+   16 statement: OUT REGISTER .
+
+    $default  reduce using rule 16 (statement)
+
+
+State 31
+
+    0 $accept: program "end of file" .
+
+    $default  accept
+
+
+State 32
+
+    2 program: line "end of file" .
+
+    $default  reduce using rule 2 (program)
+
+
+State 33
+
+    4 line: line statement .
+
+    $default  reduce using rule 4 (line)
+
+
+State 34
+
+    5 statement: LOAD REGISTER COMMA . INTEGER
+
+    INTEGER  shift, and go to state 40
+
+
+State 35
+
+    6 statement: ADD REGISTER COMMA . REGISTER COMMA REGISTER
+
+    REGISTER  shift, and go to state 41
+
+
+State 36
+
+    7 statement: SUB REGISTER COMMA . REGISTER COMMA REGISTER
+
+    REGISTER  shift, and go to state 42
+
+
+State 37
+
+    8 statement: OR REGISTER COMMA . REGISTER COMMA REGISTER
+
+    REGISTER  shift, and go to state 43
+
+
+State 38
+
+    9 statement: XOR REGISTER COMMA . REGISTER COMMA REGISTER
+
+    REGISTER  shift, and go to state 44
+
+
+State 39
+
+   14 statement: CALL REGISTER COMMA . REGISTER
+
+    REGISTER  shift, and go to state 45
+
+
+State 40
+
+    5 statement: LOAD REGISTER COMMA INTEGER .
+
+    $default  reduce using rule 5 (statement)
+
+
+State 41
+
+    6 statement: ADD REGISTER COMMA REGISTER . COMMA REGISTER
+
+    COMMA  shift, and go to state 46
+
+
+State 42
+
+    7 statement: SUB REGISTER COMMA REGISTER . COMMA REGISTER
+
+    COMMA  shift, and go to state 47
+
+
+State 43
+
+    8 statement: OR REGISTER COMMA REGISTER . COMMA REGISTER
+
+    COMMA  shift, and go to state 48
+
+
+State 44
+
+    9 statement: XOR REGISTER COMMA REGISTER . COMMA REGISTER
+
+    COMMA  shift, and go to state 49
+
+
+State 45
+
+   14 statement: CALL REGISTER COMMA REGISTER .
+
+    $default  reduce using rule 14 (statement)
+
+
+State 46
+
+    6 statement: ADD REGISTER COMMA REGISTER COMMA . REGISTER
+
+    REGISTER  shift, and go to state 50
+
+
+State 47
+
+    7 statement: SUB REGISTER COMMA REGISTER COMMA . REGISTER
+
+    REGISTER  shift, and go to state 51
+
+
+State 48
+
+    8 statement: OR REGISTER COMMA REGISTER COMMA . REGISTER
+
+    REGISTER  shift, and go to state 52
+
+
+State 49
+
+    9 statement: XOR REGISTER COMMA REGISTER COMMA . REGISTER
+
+    REGISTER  shift, and go to state 53
+
+
+State 50
+
+    6 statement: ADD REGISTER COMMA REGISTER COMMA REGISTER .
+
+    $default  reduce using rule 6 (statement)
+
+
+State 51
+
+    7 statement: SUB REGISTER COMMA REGISTER COMMA REGISTER .
+
+    $default  reduce using rule 7 (statement)
+
+
+State 52
+
+    8 statement: OR REGISTER COMMA REGISTER COMMA REGISTER .
+
+    $default  reduce using rule 8 (statement)
+
+
+State 53
+
+    9 statement: XOR REGISTER COMMA REGISTER COMMA REGISTER .
+
+    $default  reduce using rule 9 (statement)
