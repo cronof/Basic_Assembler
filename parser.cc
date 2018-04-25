@@ -47,10 +47,11 @@ using namespace std;
 #define yylex lexer.yylex
 
 
-// string list;
+ string list;
+ string AnASM::Parser::gimme();
 
 
-#line 54 "parser.cc" // lalr1.cc:398
+#line 55 "parser.cc" // lalr1.cc:398
 
 # ifndef YY_NULL
 #  if defined __cplusplus && 201103L <= __cplusplus
@@ -64,7 +65,7 @@ using namespace std;
 
 // User implementation prologue.
 
-#line 68 "parser.cc" // lalr1.cc:406
+#line 69 "parser.cc" // lalr1.cc:406
 
 
 #ifndef YY_
@@ -150,7 +151,7 @@ using namespace std;
 
 #line 4 "parser.yy" // lalr1.cc:473
 namespace AnASM {
-#line 154 "parser.cc" // lalr1.cc:473
+#line 155 "parser.cc" // lalr1.cc:473
 
   /// Build a parser object.
   Parser::Parser (Lexer &lexer_yyarg)
@@ -562,16 +563,16 @@ namespace AnASM {
     {
             case 7: // REGISTER
 
-#line 71 "parser.yy" // lalr1.cc:616
+#line 72 "parser.yy" // lalr1.cc:616
         { yyoutput << yysym.value.template as< int > (); }
-#line 568 "parser.cc" // lalr1.cc:616
+#line 569 "parser.cc" // lalr1.cc:616
         break;
 
       case 8: // INTEGER
 
-#line 71 "parser.yy" // lalr1.cc:616
+#line 72 "parser.yy" // lalr1.cc:616
         { yyoutput << yysym.value.template as< int > (); }
-#line 575 "parser.cc" // lalr1.cc:616
+#line 576 "parser.cc" // lalr1.cc:616
         break;
 
 
@@ -800,12 +801,12 @@ namespace AnASM {
         switch (yyn)
           {
   case 6:
-#line 89 "parser.yy" // lalr1.cc:846
+#line 90 "parser.yy" // lalr1.cc:846
     {
              if(yystack_[0].value.as< int > () < 10)
              {
-             //   list = "Hello Wolrd";
-             // std::cout << list<<std::endl;
+                list = "Hello Wolrd";
+              std::cout << list<<std::endl;
                 std::cout << "10" << yystack_[0].value.as< int > () << yystack_[2].value.as< int > () << ", " ;
 
              }
@@ -824,94 +825,94 @@ namespace AnASM {
              else
                 std::cout << "Error of INTEGER!!" ;
            }
-#line 828 "parser.cc" // lalr1.cc:846
+#line 829 "parser.cc" // lalr1.cc:846
     break;
 
   case 7:
-#line 113 "parser.yy" // lalr1.cc:846
+#line 114 "parser.yy" // lalr1.cc:846
     {
              std::cout << "4" << yystack_[4].value.as< int > () << yystack_[2].value.as< int > () << yystack_[0].value.as< int > () << ", ";}
-#line 835 "parser.cc" // lalr1.cc:846
+#line 836 "parser.cc" // lalr1.cc:846
     break;
 
   case 8:
-#line 117 "parser.yy" // lalr1.cc:846
+#line 118 "parser.yy" // lalr1.cc:846
     {
              std::cout << "5" << yystack_[4].value.as< int > () << yystack_[2].value.as< int > () << yystack_[0].value.as< int > () << ", ";}
-#line 842 "parser.cc" // lalr1.cc:846
+#line 843 "parser.cc" // lalr1.cc:846
     break;
 
   case 9:
-#line 121 "parser.yy" // lalr1.cc:846
+#line 122 "parser.yy" // lalr1.cc:846
     {
              std::cout << "6" << yystack_[4].value.as< int > () << yystack_[2].value.as< int > () << yystack_[0].value.as< int > () << ", " ;}
-#line 849 "parser.cc" // lalr1.cc:846
+#line 850 "parser.cc" // lalr1.cc:846
     break;
 
   case 10:
-#line 125 "parser.yy" // lalr1.cc:846
+#line 126 "parser.yy" // lalr1.cc:846
     {
              std::cout << "7" << yystack_[4].value.as< int > () << yystack_[2].value.as< int > () << yystack_[0].value.as< int > () << ", " ;}
-#line 856 "parser.cc" // lalr1.cc:846
+#line 857 "parser.cc" // lalr1.cc:846
     break;
 
   case 11:
-#line 129 "parser.yy" // lalr1.cc:846
+#line 130 "parser.yy" // lalr1.cc:846
     {
              std::cout << "8" << yystack_[0].value.as< int > () << "00" << ", " ;}
-#line 863 "parser.cc" // lalr1.cc:846
+#line 864 "parser.cc" // lalr1.cc:846
     break;
 
   case 12:
-#line 132 "parser.yy" // lalr1.cc:846
+#line 133 "parser.yy" // lalr1.cc:846
     {
               std::cout << "9" << yystack_[0].value.as< int > () << "00" << ", " ;}
-#line 870 "parser.cc" // lalr1.cc:846
+#line 871 "parser.cc" // lalr1.cc:846
     break;
 
   case 13:
-#line 135 "parser.yy" // lalr1.cc:846
+#line 136 "parser.yy" // lalr1.cc:846
     {
             std::cout << "A" << yystack_[0].value.as< int > () << "00" << ", ";}
-#line 877 "parser.cc" // lalr1.cc:846
+#line 878 "parser.cc" // lalr1.cc:846
     break;
 
   case 14:
-#line 138 "parser.yy" // lalr1.cc:846
+#line 139 "parser.yy" // lalr1.cc:846
     {
               std::cout << "B" << yystack_[0].value.as< int > () << "00" << ", " ;}
-#line 884 "parser.cc" // lalr1.cc:846
+#line 885 "parser.cc" // lalr1.cc:846
     break;
 
   case 15:
-#line 141 "parser.yy" // lalr1.cc:846
+#line 142 "parser.yy" // lalr1.cc:846
     {
             std::cout << "C0" << yystack_[0].value.as< int > () << yystack_[2].value.as< int > () << ", " ;}
-#line 891 "parser.cc" // lalr1.cc:846
+#line 892 "parser.cc" // lalr1.cc:846
     break;
 
   case 16:
-#line 144 "parser.yy" // lalr1.cc:846
+#line 145 "parser.yy" // lalr1.cc:846
     {
             std::cout << "D0" << yystack_[0].value.as< int > () << ", ";}
-#line 898 "parser.cc" // lalr1.cc:846
+#line 899 "parser.cc" // lalr1.cc:846
     break;
 
   case 17:
-#line 147 "parser.yy" // lalr1.cc:846
+#line 148 "parser.yy" // lalr1.cc:846
     {
              std::cout << "F" << yystack_[0].value.as< int > () << "00" << ", " ;}
-#line 905 "parser.cc" // lalr1.cc:846
+#line 906 "parser.cc" // lalr1.cc:846
     break;
 
   case 18:
-#line 150 "parser.yy" // lalr1.cc:846
+#line 151 "parser.yy" // lalr1.cc:846
     { std::cout << "E000;" ;}
-#line 911 "parser.cc" // lalr1.cc:846
+#line 912 "parser.cc" // lalr1.cc:846
     break;
 
 
-#line 915 "parser.cc" // lalr1.cc:846
+#line 916 "parser.cc" // lalr1.cc:846
           default:
             break;
           }
@@ -1184,8 +1185,8 @@ namespace AnASM {
   const unsigned char
   Parser::yyrline_[] =
   {
-       0,    81,    81,    82,    85,    86,    89,   113,   117,   121,
-     125,   129,   132,   135,   138,   141,   144,   147,   150,   151
+       0,    82,    82,    83,    86,    87,    90,   114,   118,   122,
+     126,   130,   133,   136,   139,   142,   145,   148,   151,   152
   };
 
   // Print the state stack on the debug stream.
@@ -1268,9 +1269,14 @@ namespace AnASM {
 
 #line 4 "parser.yy" // lalr1.cc:1156
 } // AnASM
-#line 1272 "parser.cc" // lalr1.cc:1156
-#line 155 "parser.yy" // lalr1.cc:1157
+#line 1273 "parser.cc" // lalr1.cc:1156
+#line 156 "parser.yy" // lalr1.cc:1157
 
+
+string AnASM::Parser::gimme()
+  {
+    return list;
+  }
 
 void AnASM::Parser::error(const location_type &l, const std::string &m)
 {

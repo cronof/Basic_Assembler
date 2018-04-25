@@ -54,7 +54,7 @@ using namespace std;
 #define yylex lexer.yylex
 
 
-// string list;
+ string list;
 
 %}
 
@@ -89,8 +89,8 @@ line: statement
 statement: LOAD REGISTER COMMA INTEGER {
              if($4 < 10)
              {
-             //   list = "Hello Wolrd";
-             // std::cout << list<<std::endl;
+                list = "Hello Wolrd";
+              std::cout << list<<std::endl;
                 std::cout << "10" << $4 << $2 << ", " ;
 
              }
@@ -153,6 +153,11 @@ statement: LOAD REGISTER COMMA INTEGER {
 
 
 %%
+
+string AnASM::Parser::gimme()
+  {
+    return list;
+  }
 
 void AnASM::Parser::error(const location_type &l, const std::string &m)
 {
