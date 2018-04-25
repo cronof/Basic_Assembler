@@ -42,4 +42,3 @@ lexer.o: lexer.cc
 parser.o: parser.cc
 
 main.o: main.cc
-

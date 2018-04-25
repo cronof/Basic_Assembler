@@ -12,6 +12,7 @@
 /* %parse-param { Driver &driver } */
 
 %define api.value.type variant
+
 /* %define parse.assert */
 
 %locations
@@ -20,6 +21,12 @@
   namespace AnASM {
     // class Driver;
     class Lexer;
+    // class Xever {
+    // public:
+    //   int loading() {
+    //     return 12345;
+    //   }
+    // };
   }
 
 // The following definitions is missing when %locations isn't used
@@ -36,13 +43,18 @@
 %{
 #include <iostream>
 #include <fstream>
-#include <string>
+#include <sstream>
 #include "lexer.hh"
+
+using namespace std;
 
 // TODO: Construct a symbol hash map
 
 #undef yylex
 #define yylex lexer.yylex
+
+
+// string list;
 
 %}
 
@@ -51,16 +63,19 @@
 %token NEWLINE COMMA COLON IDENTIFIER
 %token <int> REGISTER
 %token <int> INTEGER
+// %token <int> SS
 
 /* CPU Mnemonic Tokens */
 %token LOAD ADD SUB OR XOR BRA BRAZ BRAL BRALZ CALL HALT IN OUT
 
 %printer { yyoutput << $$; } <*>;
-%union {
-	char list[50];
-}
-%%
+// %union{
+//   stringstream ss;
+// }
 
+
+
+%%
 %start program;
 
 program: END
@@ -72,11 +87,13 @@ line: statement
     ;
 /* must be hex to output for use by Project*/
 statement: LOAD REGISTER COMMA INTEGER {
-
-
              if($4 < 10)
+             {
+             //   list = "Hello Wolrd";
+             // std::cout << list<<std::endl;
                 std::cout << "10" << $4 << $2 << ", " ;
-                list[] = {"10", $4, $2,','};
+
+             }
              else if($4 == 10)
                 std::cout << "10A" << $2 << ", " ;
              else if($4 == 11)
